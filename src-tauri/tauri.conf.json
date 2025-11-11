@@ -1,0 +1,31 @@
+{
+  "productName": "20-20-20 Focus Timer",
+  "version": "0.1.0",
+  "identifier": "com.twenty202020.focustimer",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false
+    },
+    "windows": [
+      {
+        "title": "20-20-20 Focus Timer",
+        "width": 500,
+        "height": 700,
+        "resizable": true,
+        "fullscreen": false,
+        "minWidth": 400,
+        "minHeight": 600
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  }
+}

@@ -1,0 +1,22 @@
+[package]
+name = "twenty-20-focus-timer"
+version = "0.1.0"
+description = "A Pomodoro timer with 20-20-20 eye break awareness"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "2.1", features = [] }
+
+[dependencies]
+tauri = { version = "2.1", features = ["macos-private-api"] }
+tauri-plugin-shell = { version = "2.1", features = [] }
+
+[features]
+# This feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
