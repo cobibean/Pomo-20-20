@@ -85,9 +85,9 @@ export function TimerShell() {
       <div className="w-full max-w-md lg:max-w-lg bg-[rgba(10,10,11,0.65)] backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-3xl shadow-2xl p-6 md:p-10 space-y-8">
         {/* Header */}
         <div className="text-center space-y-2">
-          <p className="text-sm uppercase tracking-[.25em] text-white/80">Pomodoro × 20-20-20</p>
+          <p className="text-sm uppercase tracking-[.25em] text-white/80">Pomodoro × Eye Health</p>
           <h1 className="text-2xl md:text-3xl font-semibold text-white">
-            20-20-20 Focus Timer
+            Pomo 20-20
           </h1>
           <p className="text-sm text-white/70">
             25 minutes on. 20 seconds for your eyes. 5 minutes to reset. Then repeat.

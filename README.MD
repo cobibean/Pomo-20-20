@@ -1,4 +1,4 @@
-# 20-20-20 Focus Timer
+# Pomo 20-20
 
 A minimal, production-ready Pomodoro timer that incorporates the 20-20-20 eye break rule to help protect your eyes during focused work sessions. Available as both a web app and a cross-platform desktop application.
 

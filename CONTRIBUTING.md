@@ -1,4 +1,4 @@
-# Contributing to 20-20-20 Focus Timer
+# Contributing to Pomo 20-20
 
 Thank you for your interest in contributing! This document provides guidelines and instructions for contributing to this project.
 

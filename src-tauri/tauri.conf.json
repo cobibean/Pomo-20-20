@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
-  "productName": "20-20-20 Focus Timer",
+  "productName": "Pomo 20-20",
   "version": "0.1.0",
   "identifier": "com.twenty202020.focustimer",
   "build": {
@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "20-20-20 Focus Timer",
+        "title": "Pomo 20-20",
         "width": 500,
         "height": 700,
         "resizable": true,
