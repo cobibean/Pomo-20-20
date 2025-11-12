@@ -3,6 +3,7 @@ import { PhaseTimer } from './PhaseTimer';
 import { Controls } from './Controls';
 import { useBackgroundCycle } from '../hooks/useBackgroundCycle';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Tooltip } from './Tooltip';
 
 export function TimerShell() {
   const timer = usePomodoro2020Timer();
@@ -84,14 +85,22 @@ export function TimerShell() {
 
       <div className="w-full max-w-md lg:max-w-lg bg-[rgba(10,10,11,0.65)] backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-3xl shadow-2xl p-6 md:p-10 space-y-8">
         {/* Header */}
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-3">
           <p className="text-sm uppercase tracking-[.25em] text-white/80">Pomodoro × Eye Health</p>
           <h1 className="text-2xl md:text-3xl font-semibold text-white">
             Pomo 20-20
           </h1>
-          <p className="text-sm text-white/70">
-            25 minutes on. 20 seconds for your eyes. 5 minutes to reset. Then repeat.
-          </p>
+          {/* Stacked instructions */}
+          <div className="space-y-1.5 text-sm">
+            <p className="text-white/90 font-medium">25 minutes locked in.</p>
+            <Tooltip content="Look away from your screen(s), pick something 20 feet away and focus on it for 20 seconds. During this time, BLINK SLOWLY to lubricate your eyes">
+              <p className="text-white/90 font-medium cursor-help underline decoration-white/30 underline-offset-2 hover:decoration-white/60 transition-colors">
+                20 second break for your eyes.
+              </p>
+            </Tooltip>
+            <p className="text-white/90 font-medium">5 minutes to reset.</p>
+            <p className="text-white/70 italic">Then repeat.</p>
+          </div>
         </div>
 
         {/* Timer Display */}
