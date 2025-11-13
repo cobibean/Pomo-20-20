@@ -26,3 +26,9 @@ dist-ssr
 # Tauri
 src-tauri/target
 
+# docs
+docs/content/
+
+# cursor
+.cursor/
+.cursor/worktrees.json
