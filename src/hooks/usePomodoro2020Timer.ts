@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import type { Phase } from '../types';
 import { PHASE_DURATIONS, getNextPhase } from '../config/timerConfig';
+import { useAudio } from './useAudio';
+import { useNotifications } from './useNotifications';
 
 export function usePomodoro2020Timer() {
   const [currentPhase, setCurrentPhase] = useState<Phase>('focus');
@@ -16,6 +18,9 @@ export function usePomodoro2020Timer() {
   const currentPhaseRef = useRef<Phase>(currentPhase);
   const isRunningRef = useRef<boolean>(isRunning);
 
+  const { playSound } = useAudio();
+  const { showNotification } = useNotifications();
+
   // Keep refs in sync
   useEffect(() => {
     currentPhaseRef.current = currentPhase;
@@ -29,7 +34,34 @@ export function usePomodoro2020Timer() {
   const transitionToNextPhase = () => {
     const phase = currentPhaseRef.current;
     const nextPhase = getNextPhase(phase);
-    
+
+    // Play appropriate sound and show notification based on ending phase
+    if (phase === 'focus') {
+      playSound('focus-end'); // lofi-ender.wav after 25 minutes
+    } else if (phase === 'eye-break') {
+      playSound('eye-break-end'); // GIO_HEAL_gong_short.wav after 20 seconds
+    } else if (phase === 'rest') {
+      playSound('rest-end'); // BOS_BC_Gong_Long_Shot_Black_Cm.wav after 5 minutes
+    }
+
+    // Show notification
+    const phaseNames = {
+      'focus': 'Eye Break Time',
+      'eye-break': 'Rest Break',
+      'rest': 'Focus Time'
+    };
+
+    const phaseDescriptions = {
+      'focus': 'Look at something 20 feet away for 20 seconds.',
+      'eye-break': 'Take a 5-minute break to stretch.',
+      'rest': 'Time to focus on your work for 25 minutes.'
+    };
+
+    showNotification(
+      `${phaseNames[nextPhase]} Started`,
+      phaseDescriptions[nextPhase]
+    );
+
     // Increment cycle count when completing rest phase
     if (phase === 'rest') {
       setCycleCount((prev) => prev + 1);
